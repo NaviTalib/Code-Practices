@@ -1,0 +1,30 @@
+h1{
+    text-align: center;
+    font-size: 6rem;
+}
+html{
+    font-size: 62.5%;
+}
+p{
+    font-size: 2.5rem;
+    line-height: 5rem;
+}
+li{
+    font-size: 2.5rem;
+    line-height: 5rem;
+}
+
+@media(max-width:998px){
+    html{
+        font-size: 55%;
+    }
+}
+
+@media(max-width:768px){
+    html{
+        font-size: 45%;
+    }
+}
+a{
+    text-decoration: none;
+}

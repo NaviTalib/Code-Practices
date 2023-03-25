@@ -1,0 +1,16 @@
+.box{
+    background-color: red;
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    text-align: center;
+    margin-left:15px;
+}
+
+.bigbox{
+  /*  background-color: yellow;*/
+    padding: 5px;
+    width:500px;
+    border: 1px solid ;
+    
+}

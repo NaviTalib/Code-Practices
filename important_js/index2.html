@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <style>
+        h1{
+    text-align: center;
+    font-size: 6rem;
+}
+html{
+    font-size: 62.5%;
+}
+p{
+    font-size: 2.5rem;
+    line-height: 5rem;
+}
+li{
+    font-size: 2.5rem;
+    line-height: 5rem;
+}
+
+@media(max-width:998px){
+    html{
+        font-size: 55%;
+    }
+}
+
+@media(max-width:768px){
+    html{
+        font-size: 45%;
+    }
+}
+#listArea{
+    background-color: tomato;
+    text-align: center;
+    width: 50%;
+    margin: auto;
+    height: 300px;
+    border: 5px solid darkblue;
+    border-radius: 20px;
+
+
+}
+#text{
+    padding: 5px;
+    width:300px;
+    height: 50px;
+    border-radius: 20px;
+    margin: 20px;
+    border: 5px solid darkblue;
+
+}
+#btn{
+    height: 50px;
+    border-radius: 20px;
+    border: 5px solid darkblue;
+
+
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>To Do List</h1><hr>
+        <div id="listArea">
+            <input type="text" id="text">
+            <button type="submit" id="btn">Add</button><hr style="border:5px solid darkblue;">
+            <ul class="ulist">
+                <li id="lid"></li>
+            </ul>
+        </div>
+    </div>
+    <script src="./index2.js"></script>
+</body>
+</html>
