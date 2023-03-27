@@ -1,0 +1,15 @@
+{
+  "name": "calculator-njs",
+  "version": "1.0.0",
+  "description": "simple two numbers adding  calculator using nodejs",
+  "main": "calc.js",
+  "scripts": {
+    "start": "nodemon calc.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Navi Talib",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
