@@ -1,0 +1,15 @@
+sentence1 = "Python programming is pleasurable and multipurpose."
+
+# i. Retrieve and display the first 3 characters of the sentence.
+first_three_characters = sentence1[:3]
+
+# ii. Retrieve and display the last 3 characters of the sentence.
+last_three_characters = sentence1[-3:]
+
+# iii. Retrieve and display every third character, beginning from the second character up to the 12th character.
+every_third_character = sentence1[1:12:3]
+
+# Print the results
+print("First 3 characters:", first_three_characters)
+print("Last 3 characters:", last_three_characters)
+print("Every third character (from 2nd to 12th):", every_third_character)
