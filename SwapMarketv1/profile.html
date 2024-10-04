@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="css/homep.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="logo">MyStore</h1>
+            <ul class="nav-links">
+                <li><a href="homepage.html">Home</a></li>
+                <li><a href="#">Shop</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+                <li id="username-display"></li>
+                <li><a href="index.html" class="logout">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Profile Section -->
+    <section class="profile">
+        <div class="container">
+            <h2>User Profile</h2>
+            <p id="profile-username"></p>
+            <p id="profile-email"></p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 MyStore. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Display the user profile details
+        window.onload = function() {
+            const user = JSON.parse(localStorage.getItem('loggedInUser'));
+            if (user) {
+                document.getElementById('profile-username').innerText = `Username: ${user.username}`;
+                document.getElementById('profile-email').innerText = `Email: ${user.email}`;
+                document.getElementById('username-display').innerHTML = `<a href="profile.html">Hello, ${user.username}</a>`;
+            } else {
+                window.location.href = "index.html";  // Redirect to login if not logged in
+            }
+        };
+    </script>
+
+</body>
+</html>

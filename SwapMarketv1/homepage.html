@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eCommerce Home</title>
+    <link rel="stylesheet" href="css/homep.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="logo">MyStore</h1>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+                <li id="username-display"></li> <!-- Display logged-in username -->
+                <li><a href="index.html" class="logout">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h2>Welcome to MyStore</h2>
+            <p>Find the best products for the best prices</p>
+            <a href="#" class="btn">Shop Now</a>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories">
+        <div class="container">
+            <h2>Shop by Category</h2>
+            <div class="category-cards">
+                <div class="category-card">
+                    <img src="https://via.placeholder.com/150" alt="Electronics">
+                    <h3>Electronics</h3>
+                </div>
+                <div class="category-card">
+                    <img src="https://via.placeholder.com/150" alt="Fashion">
+                    <h3>Fashion</h3>
+                </div>
+                <div class="category-card">
+                    <img src="https://via.placeholder.com/150" alt="Home Appliances">
+                    <h3>Home Appliances</h3>
+                </div>
+                <div class="category-card">
+                    <img src="https://via.placeholder.com/150" alt="Books">
+                    <h3>Books</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 MyStore. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Display the logged-in username in the navbar
+        window.onload = function() {
+            const user = JSON.parse(localStorage.getItem('loggedInUser'));
+            if (user) {
+                document.getElementById('username-display').innerHTML = `<a href="profile.html">Hello, ${user.username}</a>`;
+            } else {
+                window.location.href = "index.html"; // Redirect to login if no user is found
+            }
+        };
+    </script>
+
+</body>
+</html>

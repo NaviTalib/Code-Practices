@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - MyStore</title>
+    <link rel="stylesheet" href="css/shop.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="logo">MyStore</h1>
+            <ul class="nav-links">
+                <li><a href="homepage.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+                <li id="username-display"></li>
+                <li><a href="index.html" class="logout">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Shop Section -->
+    <section class="shop">
+        <div class="container">
+            <h2>Shop Our Products</h2>
+            <div class="product-grid">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/150" alt="Product 1">
+                    <h3>Product 1</h3>
+                    <p>$99.99</p>
+                    <a href="#" class="btn">Add to Cart</a>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/150" alt="Product 2">
+                    <h3>Product 2</h3>
+                    <p>$199.99</p>
+                    <a href="#" class="btn">Add to Cart</a>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/150" alt="Product 3">
+                    <h3>Product 3</h3>
+                    <p>$299.99</p>
+                    <a href="#" class="btn">Add to Cart</a>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/150" alt="Product 4">
+                    <h3>Product 4</h3>
+                    <p>$399.99</p>
+                    <a href="#" class="btn">Add to Cart</a>
+                </div>
+
+                <!-- Product 5 -->
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/150" alt="Product 5">
+                    <h3>Product 5</h3>
+                    <p>$499.99</p>
+                    <a href="#" class="btn">Add to Cart</a>
+                </div>
+
+                <!-- Product 6 -->
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/150" alt="Product 6">
+                    <h3>Product 6</h3>
+                    <p>$599.99</p>
+                    <a href="#" class="btn">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 MyStore. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Display the logged-in username in the navbar
+        window.onload = function() {
+            const user = JSON.parse(localStorage.getItem('loggedInUser'));
+            if (user) {
+                document.getElementById('username-display').innerHTML = `<a href="profile.html">Hello, ${user.username}</a>`;
+            } else {
+                window.location.href = "index.html"; // Redirect to login if no user is found
+            }
+        };
+    </script>
+
+</body>
+</html>

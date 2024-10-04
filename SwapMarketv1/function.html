@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Device Swap Finder</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .input-group {
+            margin-bottom: 10px;
+        }
+        label {
+            margin-right: 10px;
+        }
+        input, select {
+            margin-right: 10px;
+        }
+        button {
+            padding: 8px 16px;
+        }
+        #result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Device Swap Finder</h1>
+
+    <div>
+        <h3>Your Device</h3>
+        <div class="input-group">
+            <label for="myDeviceName">Device Name:</label>
+            <input type="text" id="myDeviceName" placeholder="e.g., iPhone 12" required>
+        </div>
+        <div class="input-group">
+            <label for="myDeviceCategory">Category:</label>
+            <select id="myDeviceCategory">
+                <option value="mobile">Mobile</option>
+                <option value="laptop">Laptop</option>
+            </select>
+        </div>
+        <div class="input-group">
+            <label for="myDeviceCondition">Condition:</label>
+            <select id="myDeviceCondition">
+                <option value="new">New</option>
+                <option value="used">Used</option>
+                <option value="fair">Fair</option>
+                <option value="poor">Poor</option>
+            </select>
+        </div>
+        <div class="input-group">
+            <label for="myDeviceUsage">Usage:</label>
+            <input type="text" id="myDeviceUsage" placeholder="e.g., personal">
+        </div>
+        <div class="input-group">
+            <label for="myDevicePrice">Price ($):</label>
+            <input type="number" id="myDevicePrice" placeholder="e.g., 800">
+        </div>
+        <div class="input-group">
+            <label for="myDeviceTime">Time Used (months):</label>
+            <input type="number" id="myDeviceTime" placeholder="e.g., 12">
+        </div>
+    </div>
+
+    <div>
+        <h3>Available Devices for Swap (comma-separated)</h3>
+        <textarea id="availableDevices" rows="4" cols="50" placeholder="e.g., Samsung Galaxy S20, mobile, new, personal, 900, 2"></textarea>
+    </div>
+
+    <button onclick="findSwap()">Find Swap</button>
+
+    <div id="result"></div>
+
+    <script>
+        // Device class
+        class Device {
+            constructor(name, category, condition, usage, price, timeUsed) {
+                this.name = name;
+                this.category = category;
+                this.condition = condition;
+                this.usage = usage;
+                this.price = parseFloat(price);
+                this.timeUsed = parseInt(timeUsed);
+            }
+
+            isMatch(otherDevice) {
+                const conditionRank = { 'new': 4, 'used': 3, 'fair': 2, 'poor': 1 };
+                const conditionDiff = Math.abs(conditionRank[this.condition] - conditionRank[otherDevice.condition]);
+
+                const priceThreshold = 0.2; // 20% difference allowed
+                const priceDiff = Math.abs(this.price - otherDevice.price) / Math.max(this.price, otherDevice.price);
+
+                const timeUsedThreshold = 6; // 6 months difference allowed
+                const timeUsedDiff = Math.abs(this.timeUsed - otherDevice.timeUsed);
+
+                return (this.category === otherDevice.category &&
+                    this.usage === otherDevice.usage &&
+                    conditionDiff <= 1 &&
+                    priceDiff <= priceThreshold &&
+                    timeUsedDiff <= timeUsedThreshold);
+            }
+        }
+
+        function findSwap() {
+            const myDeviceName = document.getElementById("myDeviceName").value;
+            const myDeviceCategory = document.getElementById("myDeviceCategory").value;
+            const myDeviceCondition = document.getElementById("myDeviceCondition").value;
+            const myDeviceUsage = document.getElementById("myDeviceUsage").value;
+            const myDevicePrice = document.getElementById("myDevicePrice").value;
+            const myDeviceTime = document.getElementById("myDeviceTime").value;
+
+            const myDevice = new Device(myDeviceName, myDeviceCategory, myDeviceCondition, myDeviceUsage, myDevicePrice, myDeviceTime);
+
+            const availableDevicesInput = document.getElementById("availableDevices").value.split("\n");
+            const availableDevices = availableDevicesInput.map(deviceStr => {
+                const [name, category, condition, usage, price, timeUsed] = deviceStr.split(",").map(item => item.trim());
+                return new Device(name, category, condition, usage, price, timeUsed);
+            });
+
+            const matches = availableDevices.filter(device => myDevice.isMatch(device));
+
+            const resultDiv = document.getElementById("result");
+            resultDiv.innerHTML = "<h3>Possible Swap Matches:</h3>";
+            if (matches.length > 0) {
+                matches.forEach(device => {
+                    resultDiv.innerHTML += `<p>Device: ${device.name}, Condition: ${device.condition}, Price: $${device.price}, Time Used: ${device.timeUsed} months</p>`;
+                });
+            } else {
+                resultDiv.innerHTML += "<p>No matching devices found.</p>";
+            }
+        }
+    </script>
+
+</body>
+</html>
