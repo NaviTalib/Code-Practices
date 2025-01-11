@@ -1,14 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>day 15</title>
     <style>
+        .head {
+            background-color: aqua;
+            text-align: center;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        .box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .typing{
+            width: 18ch;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 2px solid;
+            animation: typing 4s steps(18) infinite;
+        }
+        @keyframes typing{
+           from{width: 0;}
+           to{width: 18ch;}
+        }
         
+    
     </style>
 </head>
+
 <body>
-    
+    <h1 class="head">Day 15 of #100DaysOfCode</h1>
+    <div class="box">
+        <h1 class="typing">I am Learning CSS!</h1>
+    </div>
+
 </body>
+
 </html>
