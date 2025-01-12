@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>contact us</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            background-color: #f4f4f4;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-weight: 700;
+        }
+        form{
+            width: 350px;
+            padding: 20px;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            background: #ffffff;
+            font-size: 14px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+        }
+
+        label{
+            margin:  10px 0 5px;
+        }
+        input, button{
+            padding:  10px;
+            font-size: 14px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+        }
+        textarea{
+            margin-bottom: 15px;
+            padding: 20px;        }
+        #btn{
+            background-color: blue;
+            font-weight:700;
+            color: whitesmoke;
+        }
+        #btn:hover{
+            background-color: navy;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Contact Us</h1>
+    <form action="">
+        <label for="name">Name</label>
+        <input type="text" id="name">
+        <label for="email">Email</label>
+        <input type="email" name="" id="">
+        <label for="phone">Phone</label>
+        <input type="number" id="phone">
+        <label for="city">City</label>
+        <input type="text" id="city">
+        <label for="address">Address</label>
+        <textarea name="" id=""></textarea>
+        <input type="submit" id="btn">
+    </form>
+    
+</body>
+</html>
